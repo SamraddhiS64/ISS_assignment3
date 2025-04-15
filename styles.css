@@ -1,0 +1,141 @@
+:root {
+  --white: #ffffff;
+  --blue: #3b82f6;
+  --purple: #9333ea;
+  --text-color: #333;
+  --bg-light: #f9f9ff;
+}
+
+/* Reset and base */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-color);
+}
+
+
+/* Navbar */
+nav {
+  background: linear-gradient(to right, var(--blue), var(--purple));
+  padding: 0.75rem 2rem;
+}
+
+.navbar {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem;
+}
+
+
+
+.navbar li a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+.navbar li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Sections */
+section {
+  padding: 1.5rem 1rem; /* Reduced from 2.5rem */
+  max-width: 900px;
+  margin: auto;
+}
+
+
+/* About Section */
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.about-text {
+  flex: 1 1 55%;
+}
+
+.profile-pic {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px dotted var(--blue);
+}
+
+/* Lists */
+.education ul, .skills ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.education li, .skills li {
+  margin-bottom: 0.5rem;
+}
+
+/* CV Link */
+.cv-link {
+  background-color: var(--blue);
+  color: var(--white);
+  padding: 0.4rem 1rem;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border-radius: 4px;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.cv-link:hover {
+  background-color: var(--purple);
+}
+
+/* Gallery */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.gallery img {
+  width: 280px;
+  border-radius: 10px;
+  border: 2px solid var(--purple);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+
+#textInput {
+  width: 100%;
+  max-width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid var(--blue);
+}
+
+#output {
+  margin-top: 1.5rem;
+  background: #ffffff;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  white-space: pre-wrap;
+}

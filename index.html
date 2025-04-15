@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Personal Website</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+  <nav>
+    <div class="heart-icon">💜</div>
+    <ul class="navbar">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#cv">Resume</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+    </ul>
+  </nav>
+
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <div class="about-content">
+      <div class="about-text">
+        <p>
+          Hello! I'm Samraddhi Singhai, a passionate tech enthusiast from Delhi, originally from Bhopal. I like learning new tools, and sharing knowledge with others. I am a trained Bharatnatyam dancer and I love to sketch. I'm enthusiastic about Human Sciences and solving real-world problems using technology and constantly trying to improve myself both professionally and personally.
+        </p>
+      </div>
+      <img src="images/profile.jpeg" alt="Profile Picture" class="profile-pic" />
+    </div>
+  </section>
+
+  <section class="section" id="education">
+    <h2>Educational Background</h2>
+    <h3>International Institute of Information Technology, Hyderabad</h3>
+    <p><strong>Bachelor of Technology in Computer Science and Masters in Computational Humanities</strong> | 2024 - Present</p>
+    <ul>
+        <li>Freshman (CG: 10 :) )</li>
+        <li>Member of The Dance Crew</li>
+        <li>Member of Art Society</li>
+    </ul>
+
+    <h3>Kothari International School, Noida</h3>
+    <p><strong>High School Education</strong> | 2022 - 2024 </p>
+    <ul>
+        <li>12th Board </li>
+    </ul>
+
+    <h3>GVN The Global School, BHEL, Bhopal</h3>
+    <p><strong>High School Education</strong> | 2020 - 2022 </p>
+    <ul>
+        <li>10th Board {Lockdown 😔}</li>
+    </ul>
+
+    <h3>Carmel Convent Senior Secondary School, BHEL, Bhopal</h3>
+    <p><strong>Middle School Diploma</strong> | 2010 - 2020</p>
+    <ul>
+        <li>Junior House Prefect</li>
+        <li>Head of Dance Club</li>
+    </ul>
+</section>
+
+  <section id="skills" class="skills">
+    <h2>Technical Skills</h2>
+    <ul>
+      <li><strong>C:</strong> Intermediate</li>
+      <li><strong>C++:</strong> Beginner</li>
+      <li><strong>HTML/CSS:</strong> Beginner</li>
+      <li><strong>JavaScript:</strong> Beginner</li>
+      <li><strong>SQL:</strong> Intermediate</li>
+      <li><strong>JavaScript:</strong> Beginner</li>
+      <li><strong>Python:</strong> Intermediate</li>
+      <li><strong>Git & GitHub:</strong> Beginner</li>
+    </ul>
+  </section>
+
+  <section id="cv" class="cv">
+    <h2>Download My CV</h2>
+    <a href="images/cv/resume_fr.pdf" download class="cv-link">Download CV</a>
+  </section>
+
+  <section id="gallery" class="gallery-section">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="images/photo1.jpg" alt="Gallery Image 1"/>
+      <img src="images/photo2.jpg" alt="Gallery Image 2"/>
+      <img src="images/photo3.jpeg" alt="Gallery Image 3"/>
+    </div>
+  </section>
+
+  <!-- Question 3 -->
+
+  <section id="text-analysis" class="section">
+    <h2>Text Box</h2>
+    <textarea id="textInput" rows="10" cols="100" placeholder="Type your text here..." ></textarea>
+    <br><br>
+    <button onclick="analyzeText()">Process Text</button>
+    <div id="output"></div>
+  </section>
+
+  <footer>
+    <p>© Samraddhi Singhai | Built with 💙 HTML & CSS</p>
+  </footer>
+
+  <!-- Question 2 -->
+
+  <script>
+    function trackEvent(eventType, eventObject) {
+      const timestamp = new Date().toISOString();
+      console.log(`Timestamp: ${timestamp}, Event Type: ${eventType}, Event Object: ${eventObject}`);
+    }
+
+    document.body.addEventListener('click', function(event) {
+      const clickedElement = event.target;
+      if (clickedElement.tagName === 'A') {
+        trackEvent('click', `link: ${clickedElement.href}`);
+      } else if (clickedElement.tagName === 'IMG') {
+        trackEvent('click', `image: ${clickedElement.alt}`);
+      } else if (clickedElement.tagName === 'TEXT') {
+        trackEvent('click', `text: ${clickedElement.textContent}`);
+      } else {
+        trackEvent('click', `unknown: ${clickedElement.tagName}`);
+      }
+    });
+
+    window.addEventListener('load', function() {
+      trackEvent('view', 'page');
+    });
+  </script>
+
+
+<script>
+    function analyzeText() {
+      const text = document.getElementById("textInput").value;
+      const wordArray = text.trim().split(/\s+/);
+
+        if (wordArray.length > 20000) {
+        alert(`Limit exceeded: You entered ${wordArray.length} words. Please keep it under 20,000 words.`);
+        return;
+        }
+      // Basic counts
+      const letters = (text.match(/[a-zA-Z]/g) || []).length;
+      const words = (text.match(/\b\w+\b/g) || []).length;
+      const spaces = (text.match(/ /g) || []).length;
+      const newlines = (text.match(/\n/g) || []).length;
+      const specialSymbols = (text.match(/[^\w\s]/g) || []).length;
+  
+      // Tokenize
+      const tokens = text.toLowerCase().match(/\b[a-z']+\b/g) || [];
+  
+      // Define groups
+      const pronouns = ["i", "me", "my", "mine", "we", "us", "our", "ours", "you", "your", "yours", "he", "him", "his", "she", "her", "hers", "they", "them", "their", "theirs", "it", "its"];
+      const prepositions = ["in", "on", "at", "by", "for", "with", "about", "against", "between", "into", "through", "during", "before", "after", "above", "below", "to", "from", "up", "down", "of", "off", "over", "under"];
+      const articles = ["a", "an"];
+  
+      // Count by group
+      function countGroup(tokens, group) {
+        const count = {};
+        group.forEach(word => count[word] = 0);
+        tokens.forEach(token => {
+          if (group.includes(token)) {
+            count[token]++;
+          }
+        });
+        return count;
+      }
+  
+      const pronounCounts = countGroup(tokens, pronouns);
+      const prepCounts = countGroup(tokens, prepositions);
+      const articleCounts = countGroup(tokens, articles);
+
+      function displayFilteredCounts(title, countObj) {
+        let filtered = Object.entries(countObj)
+          .filter(([_, count]) => count > 0)
+          .map(([word, count]) => `${word} : ${count}`)
+          .join("<br>");
+        return filtered ? `<h3>${title}</h3><p>${filtered}</p>` : '';
+      }
+
+  
+      // Display output
+      let result = `
+        <h3>Basic Counts</h3>
+        <p><strong>Letters:</strong> ${letters}</p>
+        <p><strong>Words:</strong> ${words}</p>
+        <p><strong>Spaces:</strong> ${spaces}</p>
+        <p><strong>Newlines:</strong> ${newlines}</p>
+        <p><strong>Special Symbols:</strong> ${specialSymbols}</p>
+        
+        ${displayFilteredCounts("Pronouns Count", pronounCounts)}
+        ${displayFilteredCounts("Prepositions Count", prepCounts)}
+        ${displayFilteredCounts("Indefinite Articles Count", articleCounts)}
+
+      `;
+  
+      document.getElementById("output").innerHTML = result;
+    }
+  </script>
+  
+
+
+</body>
+</html>
